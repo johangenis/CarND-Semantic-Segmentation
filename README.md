@@ -4,26 +4,56 @@
 
 ## Introduction
 
-The goal of this project is to construct a fully convolutional neural network based on the VGG-16 image classifier architecture for performing semantic segmentation to identify drivable road area from an car dashcam image (trained and tested on the KITTI data set).
+In this project, a Fully Convolutional Network(FCN) was built, based on the VGG-16 image classifier architecture for performing semantic segmentation to classify road/non-road surfaces in images. The model was trained on the KITTI dataset.
+
+There were 3 optional challenges in this project, i.e:
+* Image Augmentation
+* Apply the trained model to a video
+* Train the model on the Citiscapes dataset
+
+The first and second optional challenges were attempted in this submission.
 
 ## Approach
 
 ### Architecture
 
-A pre-trained VGG-16 network was converted to a fully convolutional network by converting the final fully connected layer to a 1x1 convolution and setting the depth equal to the number of desired classes (in this case, two: road and not-road). Performance is improved through the use of skip connections, performing 1x1 convolutions on previous VGG layers (in this case, layers 3 and 4) and adding them element-wise to upsampled (through transposed convolution) lower-level layers (i.e. the 1x1-convolved layer 7 is upsampled before being added to the 1x1-convolved layer 4). Each convolution and transpose convolution layer includes a kernel initializer and regularizer
+A pre-trained VGG-16 network was converted to a fully convolutional network by converting the final fully connected layer to a 1x1 convolution and setting the depth equal to the number of desired classes (in this case, two: road and non-road). Performance is improved through the use of skip connections, performing 1x1 convolutions on previous VGG layers (in this case, layers 3 and 4) and adding them element-wise to upsampled (through transposed convolution) lower-level layers (i.e. the 1x1-convolved layer 7 is upsampled before being added to the 1x1-convolved layer 4). Each convolution and transpose convolution layer includes a kernel initializer and regularizer.
 
 ### Optimizer
 
-The loss function for the network is cross-entropy, and an Adam optimizer is used.
+The loss function for the network is Cross-Entropy, and an Adam optimizer is used.
+
+### Optional Challenges Setup
+
+#### Image Augmentation:
+
+To perform image augmentation, a new helper function was introduced, viz. aug_helper.py. Lines 99 to 120 in aug_helper.py defines all forms of augmentation to be performed on the images before training the Network.
+
+#### Apply the trained model to a video
+
+The trained model was applied to 3 videos, with varying degrees of success:
+* pretVehDetTest_720by480_210-475_out.mp4 - This is a video taken in Pretoria, South-Africa with a hand-held iPhone 8.(Please note that South Africa is a left-hand drive country.) Performance on this video is average, and what is interesting to note, is that painted islands on the road are classified a non-road(for the most part) by the FCN model.
+* harder_challenge_video-720by576_out.mp4 - A video taken from the Advanced Lane Finding project was used here, and again performance is not optimal, especially with darly shaded areas.  Road surface is correctly identified plus minus 60% of the time.
+* testVideo1_out.mp4 - This is a video taken randomly from the internet. Performance seems to be better on this video, compared to the other 2.
 
 ### Training
 
-The hyperparameters used for training are:
+#### Hyperparameters:
 
-  - keep_prob: 0.5
-  - learning_rate: 0.0009
-  - epochs: 50
-  - batch_size: 5
+  - keep_prob: 0.75
+  - learning_rate: 0.0003
+  - epochs: 160
+  - batch_size: 8
+  
+Training was stopped as soon as the loss was less than 0.005:
+
+'''
+EPOCH 124
+Loss: 0.004
+
+Stopping, loss is: 0.004
+, less than set threshold of 0.005.
+'''
 
 ## Results
 
