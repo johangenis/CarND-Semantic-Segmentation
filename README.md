@@ -33,7 +33,7 @@ To perform image augmentation, a new helper function was introduced, viz. aug_he
 
 The trained model was applied to 3 videos, with varying degrees of success:
 * pretVehDetTest_720by480_210-475_out.mp4 - This is a video taken in Pretoria, South-Africa with a hand-held iPhone 8.(Please note that South Africa is a left-hand drive country.) Performance on this video is average, and what is interesting to note, is that painted islands on the road are classified a non-road(for the most part) by the FCN model.
-* harder_challenge_video-720by576_out.mp4 - A video taken from the Advanced Lane Finding project was used here, and again performance is not optimal, especially with darly shaded areas.  Road surface is correctly identified plus minus 60% of the time.
+* harder_challenge_video-720by576_out.mp4 - A video taken from the Advanced Lane Finding project was used here, and again performance is not optimal, especially with darkly shaded areas.  Road surface is correctly identified plus minus 60% of the time.
 * testVideo1_out.mp4 - This is a video taken randomly from the internet. Performance seems to be better on this video, compared to the other 2.
 
 ### Training
