@@ -52,7 +52,7 @@ Training was stopped as soon as the loss was less than 0.005 as per the below ex
 
 ### Results on images
 
-Below are a few sample images from the output of the FCN
+Below are a few sample images from the output of the FCN:
 
 ![sample1](./sample1.png)
 ![sample2](./sample2.png)
