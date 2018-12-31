@@ -45,18 +45,14 @@ The trained model was applied to 3 videos, with varying degrees of success:
   - epochs: 160
   - batch_size: 8
   
-Training was stopped as soon as the loss was less than 0.005:
+Training was stopped as soon as the loss was less than 0.005 as per the below excerpt:
 
-**EPOCH 124 Loss: 0.004
-**Stopping, loss is: 0.004, less than set threshold of 0.005.
+#### EPOCH 124 Loss: 0.004
+#### Stopping, loss is: 0.004, less than set threshold of 0.005.
 
-## Results
+### Results on images
 
-Loss per batch tends to average below 0.200 after two epochs and below 0.100 after ten epochs. Average loss per batch at epoch 20: 0.054, at epoch 30: 0.072, at epoch 40: 0.037, and at epoch 50: 0.031.
-
-### Samples
-
-Below are a few sample images from the output of the fully convolutional network, with the segmentation class overlaid upon the original image in green.
+Below are a few sample images from the output of the FCN
 
 ![sample1](./sample1.png)
 ![sample2](./sample2.png)
@@ -67,7 +63,7 @@ Below are a few sample images from the output of the fully convolutional network
 ![sample7](./sample7.png)
 ![sample8](./sample8.png)
 
-Performance is very good, but not perfect with only spots of road identified in a handful of images.
+Performance is excellent on images, compared to the videos.
 
 
 ---
