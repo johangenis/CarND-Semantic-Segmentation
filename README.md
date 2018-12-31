@@ -63,14 +63,9 @@ Training was stopped as soon as the loss was less than 0.005 as per the below ex
 
 Below are a few sample images from the output of the FCN:
 
-![sample1](./sample1.png)
-![sample2](./sample2.png)
-![sample3](./sample3.png)
-![sample4](./sample4.png)
-![sample5](./sample5.png)
-![sample6](./sample6.png)
-![sample7](./sample7.png)
-![sample8](./sample8.png)
+![sample1](https://github.com/johangenis/CarND-Semantic-Segmentation/blob/master/runs/um_000061.png)
+![sample2](https://github.com/johangenis/CarND-Semantic-Segmentation/blob/master/runs/um_000050.png)
+![sample3](https://github.com/johangenis/CarND-Semantic-Segmentation/blob/master/runs/um_000060.png)
 
 Performance is excellent on images, compared to the videos.
 
