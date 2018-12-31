@@ -47,13 +47,8 @@ The trained model was applied to 3 videos, with varying degrees of success:
   
 Training was stopped as soon as the loss was less than 0.005:
 
-'''
-EPOCH 124
-Loss: 0.004
-
-Stopping, loss is: 0.004
-, less than set threshold of 0.005.
-'''
+**EPOCH 124 Loss: 0.004
+**Stopping, loss is: 0.004, less than set threshold of 0.005.
 
 ## Results
 
